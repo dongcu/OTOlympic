@@ -1,0 +1,76 @@
+@charset "UTF-8";
+.wrap{
+  display: flex;
+  justify-content: center;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 570px;
+}
+.box{
+  align-items: center;
+}
+.icon{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.icon .material-symbols-outlined {
+  font-size: 100px;
+  color: #333;
+  opacity: .9;
+}
+.img{
+  display: flex;
+  justify-content: center;
+}
+.logo1{
+  margin: 0 auto;
+  width: 180px;
+  height: 180px;
+  background: url(../img/파비콘.png) no-repeat;
+  background-size: contain;
+} 
+.logo2{
+  width: 350px;
+  height: 180px;
+  background: url(../img/logo_text.png) no-repeat;
+  background-size: contain;
+}
+.maintext{
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+.subtext :first-child{
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  margin-top: 10px;
+}
+.subtext :nth-child(2),
+.subtext :nth-child(3)
+{
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  margin-top: 5px;
+}
+.btn{
+  display: flex;
+  justify-content: center;
+  height: 30px;
+  margin-top: 25px;
+}
+.btn-home{
+  width: 300px;
+  height: 35px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
