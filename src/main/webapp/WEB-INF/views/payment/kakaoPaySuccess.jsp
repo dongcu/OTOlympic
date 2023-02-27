@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -19,7 +20,6 @@
 						<td colspan="1">결제일시</td>
 						<td>주문번호</td>
 						<td>상품명</td>
-						<td>상품수량</td>
 						<td>결제금액</td>
 						<td>결제방법</td>
 					</tr>
@@ -27,12 +27,11 @@
 				<tbody>
 					<tr class="cart__list__detail">
 
-						<td class="cart__list__option">[[${info.approved_at}]]</td>
+						<td class="cart__list__option">[[<fmt:formatDate value="${info.approved_at}" pattern="yyyy년 MM월 dd일"/>]]</td>
 						<td class="cart__list__option">[[${info.partner_order_id}]]</td>
 						<td class="cart__list__option">[[${info.item_name}]]</td>
-						<td class="cart__list__option">[[${info.quantity}]]</td>
 						<td class="cart__list__option">[[${info.amount.total}]]</td>
-						<td class="cart__list__option">[[${info.payment_method_type}]]</td>
+						<td class="cart__list__option">[[카카오페이]]</td>
 
 					</tr>
 				</tbody>
