@@ -32,18 +32,18 @@
     - GX룸 스케줄을 등록, 삭제 및 관리 할 수 있다.
 ## ERD
 <img width="900" alt="erd" src="https://user-images.githubusercontent.com/121228651/221449013-479e5879-e151-41ef-a268-70a6ba631cb2.png">
-<hr>
+
 ### 홈 화면
 <img width="900" alt="main" src="https://user-images.githubusercontent.com/121228651/221135181-9af88ad2-8380-4b52-8bd5-3defa0a9b094.png">  
-<hr>  
+
 ### 공지사항 게시판 화면  
 <img width="900" alt="notice" src="https://user-images.githubusercontent.com/121228651/221140250-45aef855-fc5b-402e-a885-a4efbbad430d.png">   \
-<hr>
+
 ### 쪽지함 화면
 <img width="900" alt="message" src="https://user-images.githubusercontent.com/121228651/221402881-ce72134c-3145-46c9-9004-4116468017f5.png">  
-<hr>
+
 ### 예약하기 화면
 <img width="900" alt="reserve" src="https://user-images.githubusercontent.com/121228651/221403232-1698dfba-0119-4d37-a767-19ec1103ce95.png">  
-<hr>
+
 ### 마이페이지 화면
 <img width="900" alt="mypage" src="https://user-images.githubusercontent.com/121228651/221403425-0bd6651e-0b56-44b5-8614-d8aecb9a5628.png">
