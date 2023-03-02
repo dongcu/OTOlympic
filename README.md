@@ -1,10 +1,11 @@
-# 💪🏻 헬스장 웹 페이지 만들기!(팀 프로젝트)  
+# 💪🏻 우리동네 올림픽!(팀 프로젝트)  
 헬스장 소개 및 예약, 스케줄 관리, 쪽지기능, 게시판 기능을 포함한 웹 페이지 입니다.  
 [우리동네 올림픽으로 이동!](http://우리동네올림픽.kro.kr/)
 #### 👩🏻‍💻담당 업무👩🏻‍💻
-- 게시판의 전반적인 B/E 업무 수행 (페이지 디자인(HTML5, CSS), JSP, Controller, DAO, Service, Mapper)  
+- 공지사항 게시판의 전반적인 B/E 업무 수행 (페이지 디자인(HTML5, CSS), JSP, Controller, DAO, Service, Mapper)  
 - G.X룸 예약 기능 구현
 - 회원 간 쪽지기능 B/E 업무 수행
+- INDEX 구현
 #### 📚기술스택📚
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white"/> <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7Df1E?style=flat&logo=JavaScript&logoColor=white"/> <img src="https://img.shields.io/badge/jQuery-0769AD?style=flat&logo=jQuery&logoColor=white"/>  
 <img src="https://img.shields.io/badge/Spring-6DB33F?style=flat&logo=Spring&logoColor=white"/> <img src="https://img.shields.io/badge/Visual Studio Code-007ACC?style=flat&logo=Visual Studio Code&logoColor=white"/> <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"/>
