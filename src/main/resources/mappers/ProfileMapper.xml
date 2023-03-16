@@ -210,7 +210,7 @@
 	</select>
 
 	<!-- 마이페이지(운지공) 게시글 목록 -->
-	<select id="getMyExList" resultType="com.gym.ex_board.vo.Ex_BoardVO">
+	<select id="getMyExList" resultType="com.gym.domain.Ex_BoardVO">
 		select *
 			from ex_board
 		where ex_writer = #{ex_writer}
