@@ -5,7 +5,7 @@
 <mapper namespace="com.gym.mappers.Ex_Board">
 	
 	<!-- 게시물 목록 -->
-	<select id= "ex_list" resultType="com.gym.ex_board.vo.Ex_BoardVO">
+	<select id= "ex_list" resultType="com.gym.domain.Ex_BoardVO">
 		select
 			ex_num, ex_title, ex_writer, ex_date, ex_content, view_cnt
 		from ex_board
@@ -14,13 +14,13 @@
 	</select>
 	
 	<!-- 게시물 작성 -->
-	<insert id = "ex_write" parameterType="com.gym.ex_board.vo.Ex_BoardVO">
+	<insert id = "ex_write" parameterType="com.gym.domain.Ex_BoardVO">
 		insert into ex_board (ex_title, ex_writer, ex_content)
 		values (#{ex_title}, #{ex_writer}, #{ex_content})
 	</insert>
 	
 	<!-- 게시물 조회 -->
-	<select id="ex_view" parameterType="_int" resultType="com.gym.ex_board.vo.Ex_BoardVO">
+	<select id="ex_view" parameterType="_int" resultType="com.gym.domain.Ex_BoardVO">
 		select
 			ex_num, ex_title, ex_writer, ex_date, ex_content, view_cnt
 		from ex_board
@@ -36,7 +36,7 @@
 	</update>
 	
 	<!-- 게시물 수정 -->
-	<update id="ex_modify" parameterType="com.gym.ex_board.vo.Ex_BoardVO">
+	<update id="ex_modify" parameterType="com.gym.domain.Ex_BoardVO">
 		update ex_board
 			set
 				ex_title = #{ex_title},
@@ -57,7 +57,7 @@
 	</select>
 	
 	<!-- 게시물 리스트 + 페이징 -->
-	<select id="ex_listpage" parameterType="hashMap" resultType="com.gym.ex_board.vo.Ex_BoardVO">
+	<select id="ex_listpage" parameterType="hashMap" resultType="com.gym.domain.Ex_BoardVO">
 		select
 			ex_num, ex_title, ex_writer, ex_date, ex_content, view_cnt
 		from ex_board
@@ -66,7 +66,7 @@
 	</select>
 	
 	<!-- 검색 -->
-	<select id="ex_search" parameterType="hashMap" resultType="com.gym.ex_board.vo.Ex_BoardVO">
+	<select id="ex_search" parameterType="hashMap" resultType="com.gym.domain.Ex_BoardVO">
 		select
 			ex_num, ex_title, ex_writer, ex_date, ex_content, view_cnt
 		from ex_board

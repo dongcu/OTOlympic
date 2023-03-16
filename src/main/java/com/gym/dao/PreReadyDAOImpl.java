@@ -1,4 +1,4 @@
-package com.gym.payment.DAO;
+package com.gym.dao;
 
 import java.util.HashMap;
 
@@ -7,8 +7,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.gym.domain.PreReadyVO;
 import com.gym.domain.UserVO;
-import com.gym.payment.vo.PreReadyVO;
 
 @Repository
 public class PreReadyDAOImpl implements PreReadyDAO {

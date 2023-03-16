@@ -2,9 +2,9 @@ package com.gym.service;
 
 import java.util.List;
 
+import com.gym.domain.Ex_BoardVO;
 import com.gym.domain.FreeBoardVO;
 import com.gym.domain.NoticeVO;
-import com.gym.ex_board.vo.Ex_BoardVO;
 
 public interface NewsService {
 	

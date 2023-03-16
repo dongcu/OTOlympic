@@ -1,8 +1,8 @@
-package com.gym.ex_board.service;
+package com.gym.service;
 
 import java.util.List;
 
-import com.gym.ex_board.vo.Ex_ReplyVO;
+import com.gym.domain.Ex_ReplyVO;
 
 public interface Ex_ReplyService {
 

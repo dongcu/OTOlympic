@@ -1,7 +1,7 @@
-package com.gym.payment.DAO;
+package com.gym.dao;
 
+import com.gym.domain.PreReadyVO;
 import com.gym.domain.UserVO;
-import com.gym.payment.vo.PreReadyVO;
 
 public interface PreReadyDAO {
 

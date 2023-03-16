@@ -1,11 +1,11 @@
-package com.gym.ex_board.service;
+package com.gym.dao;
 
 import java.util.List;
 
-import com.gym.ex_board.vo.Ex_BoardVO;
+import com.gym.domain.Ex_BoardVO;
 
-public interface Ex_BoardService {
-
+public interface Ex_BoardDAO {
+	
 	//게시물 목록
 	public List<Ex_BoardVO> getList() throws Exception;
 	
@@ -17,21 +17,24 @@ public interface Ex_BoardService {
 	
 	//게시물 수정
 	public void Ex_Modify(Ex_BoardVO evo) throws Exception;
-	
+
 	//게시물 삭제
 	public void Ex_delete(int ex_num) throws Exception;
-	
-	//게시물 총 갯수 
-	public int ex_count() throws Exception;
 
-	//게시물 목록 + 페이징
-	public List<Ex_BoardVO> ex_listPage(int displayPost, int postNum) throws Exception;
+	//게시물 총 갯수
+	public int ex_count() throws Exception;
 	
-	//게시물 목록 + 페이징 + 검색
+	//게시물 조회수
+	public void ex_view_cnt(int ex_num) throws Exception;
+	
+	//게시물 리스트 + 페이징
+	public List<Ex_BoardVO> ex_listPage(int displayPost , int postNum) throws Exception;
+	
+	//게시물 리스트 + 페이징 + 검색
 	public List<Ex_BoardVO> ex_search(
-			int displayPost, int postNum, String searchType, String keyword) throws Exception;
+			int displayPost, int postNum, String serachType, String keyword) throws Exception;
 	
-	//게시물 총 갯수 + 검색
+	// 검색적용 총 갯수
 	public int ex_SearchCount(String searchType, String keyword) throws Exception;
 	
 }

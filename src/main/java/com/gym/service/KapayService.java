@@ -15,11 +15,11 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
+import com.gym.dao.PreReadyDAO;
 import com.gym.domain.KakaoPayApprovalVO;
 import com.gym.domain.KakaoPayReadyVO;
+import com.gym.domain.PreReadyVO;
 import com.gym.domain.UserVO;
-import com.gym.payment.DAO.PreReadyDAO;
-import com.gym.payment.vo.PreReadyVO;
 
 import lombok.extern.java.Log;
 

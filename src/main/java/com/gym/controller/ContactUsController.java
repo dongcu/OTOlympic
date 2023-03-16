@@ -1,4 +1,4 @@
-package com.gym.contactus.controller;
+package com.gym.controller;
 
 
 import java.util.HashMap;

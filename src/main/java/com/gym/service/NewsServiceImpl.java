@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gym.dao.NewsDAO;
+import com.gym.domain.Ex_BoardVO;
 import com.gym.domain.FreeBoardVO;
 import com.gym.domain.NoticeVO;
-import com.gym.ex_board.vo.Ex_BoardVO;
 
 @Service
 public class NewsServiceImpl implements NewsService {

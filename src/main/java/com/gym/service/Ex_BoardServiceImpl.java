@@ -1,12 +1,12 @@
-package com.gym.ex_board.service;
+package com.gym.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.gym.ex_board.dao.Ex_BoardDAO;
-import com.gym.ex_board.vo.Ex_BoardVO;
+import com.gym.dao.Ex_BoardDAO;
+import com.gym.domain.Ex_BoardVO;
 
 @Service
 public class Ex_BoardServiceImpl implements Ex_BoardService {

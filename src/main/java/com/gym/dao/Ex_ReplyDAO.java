@@ -1,8 +1,8 @@
-package com.gym.ex_board.dao;
+package com.gym.dao;
 
 import java.util.List;
 
-import com.gym.ex_board.vo.Ex_ReplyVO;
+import com.gym.domain.Ex_ReplyVO;
 
 public interface Ex_ReplyDAO {
 

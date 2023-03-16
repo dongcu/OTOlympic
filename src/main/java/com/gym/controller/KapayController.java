@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.gym.domain.PreReadyVO;
 import com.gym.domain.UserVO;
-import com.gym.payment.vo.PreReadyVO;
 import com.gym.service.KapayService;
 
 import lombok.Setter;

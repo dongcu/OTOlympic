@@ -1,4 +1,4 @@
-package com.gym.ex_board.controller;
+package com.gym.controller;
 
 import java.util.List;
 
@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.gym.ex_board.service.Ex_BoardService;
-import com.gym.ex_board.service.Ex_ReplyService;
-import com.gym.ex_board.vo.Ex_BoardVO;
-import com.gym.ex_board.vo.Ex_Page;
-import com.gym.ex_board.vo.Ex_ReplyPage;
-import com.gym.ex_board.vo.Ex_ReplyVO;
+import com.gym.domain.Ex_BoardVO;
+import com.gym.domain.Ex_Page;
+import com.gym.domain.Ex_ReplyPage;
+import com.gym.domain.Ex_ReplyVO;
+import com.gym.service.Ex_BoardService;
+import com.gym.service.Ex_ReplyService;
 
 @Controller
 @RequestMapping(value="/ex_board")

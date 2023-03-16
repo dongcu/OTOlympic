@@ -5,7 +5,7 @@
 <mapper namespace="com.gym.mappers.kakaopay">
 
 	<!-- 상품 가져오기 -->
-	<select id = "testready" parameterType="String" resultType="com.gym.payment.vo.PreReadyVO">
+	<select id = "testready" parameterType="String" resultType="com.gym.domain.PreReadyVO">
 		select
 			pronum, orderid, itemname, totalamount, taxfree, month
 		from product

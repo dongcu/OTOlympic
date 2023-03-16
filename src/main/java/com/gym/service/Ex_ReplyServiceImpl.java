@@ -1,4 +1,4 @@
-package com.gym.ex_board.service;
+package com.gym.service;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import com.gym.ex_board.dao.Ex_ReplyDAO;
-import com.gym.ex_board.vo.Ex_ReplyVO;
+import com.gym.dao.Ex_ReplyDAO;
+import com.gym.domain.Ex_ReplyVO;
 
 @Service
 public class Ex_ReplyServiceImpl implements Ex_ReplyService {

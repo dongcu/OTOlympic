@@ -1,4 +1,4 @@
-package com.gym.ex_board.dao;
+package com.gym.dao;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,7 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import com.gym.ex_board.vo.Ex_ReplyVO;
+import com.gym.domain.Ex_ReplyVO;
 
 @Repository
 public class Ex_ReplyDAOImpl implements Ex_ReplyDAO {

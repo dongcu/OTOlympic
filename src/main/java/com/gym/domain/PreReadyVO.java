@@ -1,4 +1,4 @@
-package com.gym.payment.vo;
+package com.gym.domain;
 
 import lombok.Data;
 

@@ -219,7 +219,7 @@
 	</select>
 
 	<!-- 마이페이지(운지공) 게시글 조회 -->
-	<select id="getMyExDetail" parameterType="_int" resultType="com.gym.ex_board.vo.Ex_BoardVO">
+	<select id="getMyExDetail" parameterType="_int" resultType="com.gym.domain.Ex_BoardVO">
 		select * from ex_board
 			where ex_num = #{ex_num}
 	</select>
@@ -249,7 +249,7 @@
 	</delete>
 	
 	<!-- 마이페이지(운지공) 게시글에서 댓글 수정 뷰 -->
-	<select id="myExDetailReplyDetail" resultType="com.gym.ex_board.vo.Ex_ReplyVO">
+	<select id="myExDetailReplyDetail" resultType="com.gym.domain.Ex_ReplyVO">
 		select * from exc_comment
 			where exc_num = #{exc_num}
 	</select>
@@ -267,7 +267,7 @@
 	</select>
 	
 	<!-- 마이페이지(운지공) 댓글 목록 -->
-	<select id="getMyExRepList" resultType="com.gym.ex_board.vo.Ex_ReplyVO">
+	<select id="getMyExRepList" resultType="com.gym.domain.Ex_ReplyVO">
 		select *
 			from ex_board b
 		join exc_comment c

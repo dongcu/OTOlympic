@@ -2,11 +2,11 @@ package com.gym.service;
 
 import java.util.List;
 
+import com.gym.domain.Ex_BoardVO;
+import com.gym.domain.Ex_ReplyVO;
 import com.gym.domain.FreeBoardVO;
 import com.gym.domain.ReplyVO;
 import com.gym.domain.ReservationVO;
-import com.gym.ex_board.vo.Ex_BoardVO;
-import com.gym.ex_board.vo.Ex_ReplyVO;
 
 public interface ProfileService {
 

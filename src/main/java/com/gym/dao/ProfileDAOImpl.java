@@ -7,11 +7,11 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.gym.domain.Ex_BoardVO;
+import com.gym.domain.Ex_ReplyVO;
 import com.gym.domain.FreeBoardVO;
 import com.gym.domain.ReplyVO;
 import com.gym.domain.ReservationVO;
-import com.gym.ex_board.vo.Ex_BoardVO;
-import com.gym.ex_board.vo.Ex_ReplyVO;
 
 @Repository
 public class ProfileDAOImpl implements ProfileDAO {

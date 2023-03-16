@@ -1,4 +1,4 @@
-package com.gym.ex_board.vo;
+package com.gym.domain;
 
 import java.util.Date;
 
