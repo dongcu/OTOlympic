@@ -3,6 +3,30 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gym.mappers.profile">
+
+	<!-- 회원정보 수정하기 -->
+	<update id="profile_modify" parameterType="com.gym.domain.UserVO">
+		update user set
+			usernick = #{usernick}, phone = #{phone}, zipcode = #{zipcode}
+			, addr = #{addr}, addrdetail = #{addrdetail}, addretc = #{addretc}
+		where userid = #{userid}
+	</update>
+	
+	<!-- 비밀번호 수정 -->
+	<update id="pw_modify" parameterType="com.gym.domain.UserVO">
+		update user set
+			userpw = #{userpw_re}
+		where userid = #{userid} and userpw = #{userpw}
+	</update>
+	
+	<!-- 회원탈퇴 -->
+	<delete id="delete_user" parameterType="com.gym.domain.UserVO">
+		delete from user
+			where userid = #{userid} and userpw = #{userpw_re}
+	</delete>
+	
+	
+
 	<!-- 현재 예약 내역 개수 -->
 	<select id="getMyReserveCnt" resultType="_int">
 		select count(a.rv_num) from

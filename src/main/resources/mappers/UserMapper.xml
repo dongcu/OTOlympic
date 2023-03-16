@@ -25,34 +25,7 @@
 			where userid = #{userid}
 	</select>
 
-	<!-- 회원정보 불러오기 -->
-	<select id="userlist" parameterType="string" resultType="com.gym.domain.UserVO">
-		select * from user
-			where userid = #{userid}
-	</select>
-	
-	<!-- 회원정보 수정하기 -->
-	<update id="profile_modify" parameterType="com.gym.domain.UserVO">
-		update user set
-			usernick = #{usernick}, phone = #{phone}, zipcode = #{zipcode}
-			, addr = #{addr}, addrdetail = #{addrdetail}, addretc = #{addretc}
-		where userid = #{userid}
-	</update>
-	
-	<!-- 비밀번호 수정 -->
-	<update id="pw_modify" parameterType="com.gym.domain.UserVO">
-		update user set
-			userpw = #{userpw_re}
-		where userid = #{userid} and userpw = #{userpw}
-	</update>
-	
-	<!-- 회원탈퇴 -->
-	<delete id="delete_user" parameterType="com.gym.domain.UserVO">
-		delete from user
-			where userid = #{userid} and userpw = #{userpw_re}
-	</delete>
-	
-	<!-- 아이디 찾기 -->
+		<!-- 아이디 찾기 -->
 	<select id="findId" resultType="com.gym.domain.UserVO">
 		select * from user where username =#{username} and email =#{email}
 	</select>

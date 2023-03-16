@@ -7,8 +7,20 @@ import com.gym.domain.Ex_ReplyVO;
 import com.gym.domain.FreeBoardVO;
 import com.gym.domain.ReplyVO;
 import com.gym.domain.ReservationVO;
+import com.gym.domain.UserVO;
 
 public interface ProfileService {
+	
+//	회원정보 수정하기
+	public int profile_modify(UserVO vo) throws Exception;
+	 
+//	비밀번호 수정하기
+	public int pw_modify(UserVO vo) throws Exception;
+	
+//	회원 탈퇴
+	public int delete_user(UserVO vo) throws Exception;
+
+	
 
 //	현재 예약 내역 개수
 	public int getMyReserveCnt(String userid) throws Exception;
@@ -23,8 +35,7 @@ public interface ProfileService {
 	public int getMyReservePastCnt(String userid, String date_list, String lecture_list) throws Exception;
 	
 //	과거 예약 목록
-	public List<ReservationVO> getMyReservePast(String userid, String date_list,
-			String lecture_list, int displayPost, int postNum) throws Exception;
+	public List<ReservationVO> getMyReservePast(String userid, String date_list, String lecture_list, int displayPost, int postNum) throws Exception;
 
 	
 	

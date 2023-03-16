@@ -30,15 +30,11 @@ import com.gym.service.Ex_ReplyService;
 import com.gym.service.FreeBoardService;
 import com.gym.service.ProfileService;
 import com.gym.service.ReservationService;
-import com.gym.service.UserService;
 
 @Controller
 @RequestMapping("/profile/*")
 public class ProfileController {
 
-	@Autowired
-	private UserService userservice;
-	
 	@Autowired
 	private ReservationService reserservice; 
 	
@@ -53,23 +49,14 @@ public class ProfileController {
 	
 	@Autowired
 	private Ex_ReplyService excservice;
-
 	
-	@RequestMapping(value = { "/profile_pw_modify", "/profile_delete_user",
-			"/my_free_write", "/my_ex_write" }, method = RequestMethod.GET)
+	@RequestMapping(value = {"/profile_check", "/profile_modify", "/profile_pw_modify", "/profile_delete_user", "/my_free_write", "/my_ex_write"}, method = RequestMethod.GET)
 	public void replace() {}
-
-//	개인 정보 보기, 개인 정보 수정
-	@RequestMapping(value = { "/profile_check", "/profile_modify" }, method = RequestMethod.GET)
-	public void profile_check(String userid, UserVO vo, Model model) throws Exception {
-		userservice.userlist(userid);
-		model.addAttribute("profile", vo);
-	}
 
 //	개인 정보 수정
 	@RequestMapping(value = "/profile_modify", method = RequestMethod.POST)
 	public String profile_modify(UserVO vo, HttpServletRequest req) throws Exception {
-		userservice.profile_modify(vo);
+		profileservice.profile_modify(vo);
 		HttpSession session = req.getSession();
 		session.setAttribute("loginUser", vo);
 		return "redirect:/profile/profile_check";
@@ -79,7 +66,7 @@ public class ProfileController {
 	@RequestMapping(value = "/profile_pw_modify", method = RequestMethod.POST)
 	public String profile_pw_modify(UserVO vo, String userpw, HttpServletRequest req, RedirectAttributes ra)
 			throws Exception {
-		if (userservice.pw_modify(vo) == 1) {
+		if (profileservice.pw_modify(vo) == 1) {
 			HttpSession session = req.getSession();
 			session.setAttribute("loginUser.userpw", userpw);
 			return "redirect:/profile/profile_check";
@@ -92,7 +79,7 @@ public class ProfileController {
 //	회원 탈퇴
 	@RequestMapping(value = "/profile/profile_delete_user", method = RequestMethod.POST)
 	public String profile_delete_user(UserVO vo, HttpServletRequest req) throws Exception {
-		userservice.delete_user(vo);
+		profileservice.delete_user(vo);
 		HttpSession session = req.getSession();
 		session.invalidate();
 		return "redirect:/";

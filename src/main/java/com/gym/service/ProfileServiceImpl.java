@@ -11,13 +11,34 @@ import com.gym.domain.Ex_ReplyVO;
 import com.gym.domain.FreeBoardVO;
 import com.gym.domain.ReplyVO;
 import com.gym.domain.ReservationVO;
+import com.gym.domain.UserVO;
 
 @Service
 public class ProfileServiceImpl implements ProfileService {
 
 	@Autowired
 	private ProfileDAO pdao;
+	
+//	회원정보 수정하기
+	@Override
+	public int profile_modify(UserVO vo) throws Exception {
+		return pdao.profile_modify(vo);
+	}
+	
+//	비밀번호 수정하기
+	@Override
+	public int pw_modify(UserVO vo) throws Exception {
+		return pdao.pw_modify(vo);
+	}
+	 
+//	회원 탈퇴
+	@Override
+	public int delete_user(UserVO vo) throws Exception {
+		return pdao.delete_user(vo);
+	}
 
+	
+	
 //	현재 예약 내역 개수
 	@Override
 	public int getMyReserveCnt(String userid) throws Exception {
@@ -44,8 +65,7 @@ public class ProfileServiceImpl implements ProfileService {
 	
 //	과거 예약 목록
 	@Override
-	public List<ReservationVO> getMyReservePast(String userid, String date_list,
-			String lecture_list, int displayPost, int postNum) throws Exception {
+	public List<ReservationVO> getMyReservePast(String userid, String date_list, String lecture_list, int displayPost, int postNum) throws Exception {
 		return pdao.getMyReservePast(userid, date_list, lecture_list, displayPost, postNum);
 	}
 	

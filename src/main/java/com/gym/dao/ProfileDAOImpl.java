@@ -12,6 +12,7 @@ import com.gym.domain.Ex_ReplyVO;
 import com.gym.domain.FreeBoardVO;
 import com.gym.domain.ReplyVO;
 import com.gym.domain.ReservationVO;
+import com.gym.domain.UserVO;
 
 @Repository
 public class ProfileDAOImpl implements ProfileDAO {
@@ -20,7 +21,27 @@ public class ProfileDAOImpl implements ProfileDAO {
 	private SqlSession sql;
 
 	private static String namespace = "com.gym.mappers.profile";
+	
+//  회원정보 수정하기
+	@Override
+	public int profile_modify(UserVO vo) throws Exception {
+		return sql.update(namespace + ".profile_modify", vo);
+	}
+	
+//	비밀번호 수정
+	@Override
+	public int pw_modify(UserVO vo) throws Exception {
+		return sql.update(namespace + ".pw_modify", vo);
+	}
+	
+//	회원 탈퇴
+	@Override
+	public int delete_user(UserVO vo) throws Exception {
+		return sql.delete(namespace + ".delete_user", vo);
+	}
 
+	
+	
 //	현재 예약 내역 개수
 	@Override
 	public int getMyReserveCnt(String userid) throws Exception {
@@ -59,8 +80,7 @@ public class ProfileDAOImpl implements ProfileDAO {
 	
 //	과거 예약 목록
 	@Override
-	public List<ReservationVO> getMyReservePast(String userid, String date_list,
-			String lecture_list, int displayPost, int postNum) throws Exception {
+	public List<ReservationVO> getMyReservePast(String userid, String date_list, String lecture_list, int displayPost, int postNum) throws Exception {
 		
 		HashMap<String, Object> data = new HashMap<String, Object>();
 		

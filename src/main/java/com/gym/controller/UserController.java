@@ -31,7 +31,7 @@ import com.gym.service.UserService;
 public class UserController {
 
 	@Autowired
-	private UserService service;
+	private UserService userservice;
 
 	@Autowired
 	private MailSendService mailService;
@@ -45,7 +45,7 @@ public class UserController {
 //  로그인
 	@PostMapping("/login")
 	public String login(UserVO vo, HttpServletRequest req, RedirectAttributes ra) throws Exception {
-		UserVO loginUser = service.login(vo);
+		UserVO loginUser = userservice.login(vo);
 		if(loginUser == null) {
 			ra.addFlashAttribute("loginfail", "F");
 			return "redirect:/user/login";
@@ -61,6 +61,7 @@ public class UserController {
 		}
 	}
 
+//	이메일 인증 페이지로 이동
 	@RequestMapping(value = "/join_email", method = RequestMethod.POST)
 	public void join_email() {}
 
@@ -83,7 +84,7 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping(value = "/idchk", method = RequestMethod.POST)
 	public String idchk(@RequestParam("userid") String userid) throws Exception {
-		int result = service.idchk(userid);
+		int result = userservice.idchk(userid);
 		if (result != 0) {
 			return "fail";
 		} else {
@@ -94,7 +95,7 @@ public class UserController {
 //	회원가입 완료
 	@RequestMapping(value = "/join_complete", method = RequestMethod.POST)
 	public String join_complete(UserVO vo) throws Exception {
-		service.join(vo);
+		userservice.join(vo);
 		return "redirect:/user/login";
 	} 
 
@@ -110,7 +111,7 @@ public class UserController {
 //	아이디 찾기
 	@PostMapping("/findedid")
 	public @ResponseBody UserVO postFindId(@RequestParam("username") String username, @RequestParam("email") String email) throws Exception {
-		UserVO result = service.findId(username, email);
+		UserVO result = userservice.findId(username, email);
 		if(result == null) {
 			return null;
 		}
@@ -120,14 +121,13 @@ public class UserController {
 //	이메일로 인증번호 인증
 	@PostMapping("/findpw")
 	public @ResponseBody String postfindpw(@RequestParam("email") String email, @RequestParam("userid") String userid) throws Exception {
-		if(service.findpw(userid, email) == 1) {
+		if(userservice.findpw(userid, email) == 1) {
 			String result = mailService.findPwEmail(email);
 			return result;
 		}
 		else {
 			return null;
 		}
-		
 	}
 	
 //	비밀번호 변경 view 보여주기 post방식
@@ -140,7 +140,7 @@ public class UserController {
 //	비밀번호 변경하기
 	@PostMapping("/changePW")
 	public String postChangePW(String userpw, String userid) throws Exception{
-		service.changePW(userid, userpw);
+		userservice.changePW(userid, userpw);
 		return "redirect:/user/login";
 	}
 }
