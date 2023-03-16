@@ -13,26 +13,10 @@
 	<!-- 회원가입 -->
 	<insert id="join" parameterType="com.gym.domain.UserVO">
 		insert into
-			user(userid
-			, userpw
-			, username
-			, usernick
-			, zipcode
-			, addr
-			, addrdetail
-			, addretc
-			, email
-			, phone)
-		values (#{userid}
-			, #{userpw}
-			, #{username}
-			, #{usernick}
-			, #{zipcode}
-			, #{addr}
-			, #{addrdetail}
-			, #{addretc}
-			, #{email}
-			, #{phone})
+			user(userid, userpw, username, usernick, zipcode
+			, addr, addrdetail, addretc, email, phone)
+			values (#{userid}, #{userpw}, #{username}, #{usernick}, #{zipcode}
+			, #{addr}, #{addrdetail}, #{addretc}, #{email}, #{phone})
 	</insert>
 
 	<!-- id 중복 체크 -->
@@ -50,12 +34,8 @@
 	<!-- 회원정보 수정하기 -->
 	<update id="profile_modify" parameterType="com.gym.domain.UserVO">
 		update user set
-			usernick = #{usernick}
-			, phone = #{phone}
-			, zipcode = #{zipcode}
-			, addr = #{addr}
-			, addrdetail = #{addrdetail}
-			, addretc = #{addretc}
+			usernick = #{usernick}, phone = #{phone}, zipcode = #{zipcode}
+			, addr = #{addr}, addrdetail = #{addrdetail}, addretc = #{addretc}
 		where userid = #{userid}
 	</update>
 	
@@ -82,22 +62,12 @@
 		select count(*) from user
 			where userid = #{userid} and email =#{email}
 	</select>
+	
 	<!-- 비밀번호 변경하기  -->
 	<update id="changePW">
 		update user set 
 			userpw =#{userpw}
 		where userid =#{userid}
 	</update>
+	
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-

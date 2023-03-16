@@ -58,22 +58,6 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserVO login(UserVO vo) throws Exception {
 		return udao.login(vo);
-//		if(loginUser == null) {
-//			
-//			return false;
-//		}
-//		else {
-//			if(req == null) {
-//				
-//			}else {
-//				req.getSession().setAttribute("loginUser", loginUser);
-//				if(mdao.newMsg(loginUser.getUserid()) == 0) {
-//					req.getSession().setAttribute("newMsg", "F");
-//				} else {
-//					req.getSession().setAttribute("newMsg", "T");
-//				}
-//			}return true;
-//		}
 	}
 
 //	아이디 찾기
@@ -88,12 +72,11 @@ public class UserServiceImpl implements UserService {
 		
 		return udao.findpw(userid, email);
 	}
+	
 //	비밀번호 변경
 	@Override
 	public void changePW(String userid, String userpw) throws Exception {
 		udao.changePW(userid, userpw);
 	}
-
-
 	
 }

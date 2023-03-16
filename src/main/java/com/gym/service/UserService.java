@@ -39,7 +39,4 @@ public interface UserService {
 
 //	비밀번호 변경
 	public void changePW(String userid, String userpw) throws Exception;
-
-
-
 }

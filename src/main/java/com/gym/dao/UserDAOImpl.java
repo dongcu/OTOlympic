@@ -83,11 +83,5 @@ public class UserDAOImpl implements UserDAO {
 		map.put("userpw", userpw);
 		sql.update(namespace + ".changePW", map);
 	}
-
-
-
-
-
-
 	
 }

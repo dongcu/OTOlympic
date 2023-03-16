@@ -39,18 +39,14 @@ public class UserController {
 	@Autowired
 	private MessageService messageService;
 	
-
-
-	@RequestMapping(value = { "/login", "/join", "id_find", "/pw_find" , "/changePw"}, method = RequestMethod.GET)
-	public void replace() {
-	}
+	@RequestMapping(value = {"/login", "/join", "id_find", "/pw_find" , "/changePw"}, method = RequestMethod.GET)
+	public void replace() {}
 
 //  로그인
 	@PostMapping("/login")
 	public String login(UserVO vo, HttpServletRequest req, RedirectAttributes ra) throws Exception {
 		UserVO loginUser = service.login(vo);
 		if(loginUser == null) {
-		
 			ra.addFlashAttribute("loginfail", "F");
 			return "redirect:/user/login";
 		}
@@ -66,9 +62,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/join_email", method = RequestMethod.POST)
-	public void join_email() {
-
-	}
+	public void join_email() {}
 
 //	이메일 인증
 	@GetMapping("/mailCheck")
@@ -99,17 +93,8 @@ public class UserController {
 
 //	회원가입 완료
 	@RequestMapping(value = "/join_complete", method = RequestMethod.POST)
-	public String join_complete(UserVO vo, @RequestParam("userid") String userid) throws Exception {
-		int result = service.idchk(userid);
-		try {
-			if (result != 0) {
-				return "/";
-			} else {
-				service.join(vo);
-			}
-		} catch (Exception e) {
-			throw new RuntimeException();
-		}
+	public String join_complete(UserVO vo) throws Exception {
+		service.join(vo);
 		return "redirect:/user/login";
 	} 
 
@@ -151,11 +136,11 @@ public class UserController {
 		model.addAttribute("userid", userid);
 		return "/user/changePW";
 	}
+	
 //	비밀번호 변경하기
 	@PostMapping("/changePW")
 	public String postChangePW(String userpw, String userid) throws Exception{
 		service.changePW(userid, userpw);
 		return "redirect:/user/login";
 	}
-
 }

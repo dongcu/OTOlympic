@@ -89,8 +89,8 @@
 					<tr>
 						<th id="certification_number_title">인증번호</th>
 						<td>
-						<input type="text" name="certification_number" id="certification_number" disabled>
-						<span id="Timer" style="color: red;"></span>
+							<input type="text" name="certification_number" id="certification_number" disabled>
+							<span id="Timer" style="color: red;"></span>
 						</td>
 					</tr>
 					<tr>
