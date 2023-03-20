@@ -71,11 +71,11 @@
 <body>
 	<c:if test="${modifyFail == 'F'}">
 		<script>
-		alert("현재 비밀번호가 일치하지 않습니다.");
-	</script>
+			alert("현재 비밀번호가 일치하지 않습니다.");
+		</script>
 	</c:if>
 	<%@ include file="../include/header.jsp"%>
-	<c:if test="${loginUser == null }">
+	<c:if test="${loginUser == null}">
 		<script>
 			alert("로그인 후 이용하세요!");
 			location.replace('${cp}/user/login');
@@ -94,6 +94,7 @@
 					<tr>
 						<td>
 							<input type="hidden" name="userid" id="userid" value="${loginUser.userid}">
+							<input type="hidden" name="user" id="user" value="${loginUser.userpw}">
 						</td>
 					</tr>
 					<tr>

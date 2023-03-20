@@ -76,7 +76,7 @@ table.type3 {
 
 <body>
 	<%@ include file="../include/header.jsp"%>
-	<c:if test="${loginUser == null }">
+	<c:if test="${loginUser == null}">
 		<script>
 			alert("로그인 후 이용하세요!");
 			location.replace('${cp}/user/login');

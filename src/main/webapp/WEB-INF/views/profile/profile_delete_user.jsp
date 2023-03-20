@@ -75,7 +75,13 @@
 
 <body>
 	<%@ include file="../include/header.jsp"%>
-	<c:if test="${loginUser == null }">
+	<c:if test="${deleteFail == 'F'}">
+		<script>
+			alert("아이디 혹은 비밀번호를 확인해주세요!");
+			location.href = '${cp}/profile/profile_delete_user';
+		</script>
+	</c:if>
+	<c:if test="${loginUser == null}">
 		<script>
 			alert("로그인 후 이용하세요!");
 			location.replace('${cp}/user/login');
@@ -94,7 +100,7 @@
 					<tr>
 						<th><label for="userid">아이디</label></th>
 						<td>
-							<input type="text" name="userid" id="userid" value="" style="color: gray;">
+							<input type="text" name="userid" id="userid">
 						</td>
 					</tr>
 					<tr>
@@ -162,6 +168,12 @@
 		if (delete_confirm.value != "회원 탈퇴를 신청합니다.") {
 			alert("입력칸을 확인해주세요!");
 			delete_confirm.focus();
+			return false;
+		}
+		
+		if (confirm('정말로 탈퇴하시겠습니까?')) {
+			return true;
+		} else {
 			return false;
 		}
 

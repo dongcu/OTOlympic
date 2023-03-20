@@ -22,7 +22,7 @@
 	<!-- 회원탈퇴 -->
 	<delete id="delete_user" parameterType="com.gym.domain.UserVO">
 		delete from user
-			where userid = #{userid} and userpw = #{userpw_re}
+			where userid = #{userid} and userpw = #{userpw}
 	</delete>
 	
 	

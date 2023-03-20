@@ -1,9 +1,12 @@
 package com.gym.controller;
 
+import java.io.PrintWriter;
+import java.net.http.HttpResponse;
 import java.util.List;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +56,7 @@ public class ProfileController {
 	@RequestMapping(value = {"/profile_check", "/profile_modify", "/profile_pw_modify", "/profile_delete_user", "/my_free_write", "/my_ex_write"}, method = RequestMethod.GET)
 	public void replace() {}
 
-//	개인 정보 수정
+//	회원정보 수정하기
 	@RequestMapping(value = "/profile_modify", method = RequestMethod.POST)
 	public String profile_modify(UserVO vo, HttpServletRequest req) throws Exception {
 		profileservice.profile_modify(vo);
@@ -64,11 +67,12 @@ public class ProfileController {
 
 //	비밀번호 수정
 	@RequestMapping(value = "/profile_pw_modify", method = RequestMethod.POST)
-	public String profile_pw_modify(UserVO vo, String userpw, HttpServletRequest req, RedirectAttributes ra)
-			throws Exception {
+	public String profile_pw_modify(UserVO vo, String userpw_re, HttpServletRequest req, RedirectAttributes ra) throws Exception {
 		if (profileservice.pw_modify(vo) == 1) {
 			HttpSession session = req.getSession();
-			session.setAttribute("loginUser.userpw", userpw);
+			UserVO uvo = (UserVO)session.getAttribute("loginUser");
+			uvo.setUserpw(userpw_re);
+			session.setAttribute("loginUser", uvo);
 			return "redirect:/profile/profile_check";
 		} else {
 			ra.addFlashAttribute("modifyFail", "F");
@@ -78,11 +82,17 @@ public class ProfileController {
 
 //	회원 탈퇴
 	@RequestMapping(value = "/profile/profile_delete_user", method = RequestMethod.POST)
-	public String profile_delete_user(UserVO vo, HttpServletRequest req) throws Exception {
-		profileservice.delete_user(vo);
-		HttpSession session = req.getSession();
-		session.invalidate();
-		return "redirect:/";
+	public void profile_delete_user(UserVO vo, HttpServletRequest req, RedirectAttributes ra, HttpServletResponse response) throws Exception {
+		if (profileservice.delete_user(vo) == 1) {
+			HttpSession session = req.getSession();
+			session.invalidate();
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('회원 탈퇴가 완료되었습니다.'); location.href='/'</script>");
+			out.flush();
+		} else {
+			ra.addFlashAttribute("deleteFail", "F");
+		}
 	}
 	
 	
