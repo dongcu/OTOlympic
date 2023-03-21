@@ -145,6 +145,12 @@
 			f_board where b_writer = #{b_writer}
 	</select>
 
+	<!-- 마이페이지(자게) 댓글 총 개수 -->
+	<select id="getMyFreeRepCnt" resultType="_int">
+		select count(c_num) from
+			f_comment where c_writer = #{c_writer}
+	</select>
+
 	<!-- 마이페이지(자게) 게시글 목록 -->
 	<select id="getMyFreeList" resultType="com.gym.domain.FreeBoardVO">
 		select *
@@ -195,12 +201,6 @@
 		update f_comment set c_contents = #{c_contents}
 			where c_num = #{c_num}
 	</update>
-
-	<!-- 마이페이지(자게) 댓글 총 개수 -->
-	<select id="getMyFreeRepCnt" resultType="_int">
-		select count(c_num) from
-			f_comment where c_writer = #{c_writer}
-	</select>
 	
 	<!-- 마이페이지(자게) 댓글 목록 -->
 	<select id="getMyFreeRepList" resultType="com.gym.domain.ReplyVO">

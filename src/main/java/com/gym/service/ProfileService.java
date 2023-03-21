@@ -41,6 +41,9 @@ public interface ProfileService {
 	
 //	마이페이지(자게) 게시글 총 개수
 	public int getMyFreeCnt(String b_writer) throws Exception;
+	
+//	마이페이지(자게) 댓글 총 개수
+	public int getMyFreeRepCnt(String c_writer) throws Exception;
 
 //	마이페이지(자게) 게시글 목록
 	public List<FreeBoardVO> getMyFreeList(String b_writer, int displayPost, int postNum) throws Exception;
@@ -65,9 +68,6 @@ public interface ProfileService {
 	
 //	마이페이지(자게) 게시글에서 댓글 수정
 	public void myFreeDetailReplyModify(ReplyVO vo) throws Exception;
-
-//	마이페이지(자게) 댓글 총 개수
-	public int getMyFreeRepCnt(String c_writer) throws Exception;
 	
 //	마이페이지(자게) 댓글 목록
 	public List<ReplyVO> getMyFreeRepList(String c_writer, int displayPost, int postNum) throws Exception;

@@ -165,7 +165,7 @@
 		const userpw = joinForm.userpw;
 		const delete_confirm = joinForm.delete_confirm;
 
-		if (delete_confirm.value != "회원 탈퇴를 신청합니다.") {
+		if (delete_confirm.value != "회원 탈퇴를 신청합니다." || delete_confirm.value != "회원 탈퇴를 신청합니다") {
 			alert("입력칸을 확인해주세요!");
 			delete_confirm.focus();
 			return false;

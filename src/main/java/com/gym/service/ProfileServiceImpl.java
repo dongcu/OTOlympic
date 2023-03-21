@@ -77,6 +77,12 @@ public class ProfileServiceImpl implements ProfileService {
 		return pdao.getMyFreeCnt(b_writer);
 	}
 
+//	마이페이지(자게) 댓글 총 개수
+	@Override
+	public int getMyFreeRepCnt(String c_writer) throws Exception {
+		return pdao.getMyFreeRepCnt(c_writer);
+	}
+	
 //	마이페이지(자게) 게시글 목록
 	@Override
 	public List<FreeBoardVO> getMyFreeList(String b_writer, int displayPost, int postNum) throws Exception {
@@ -99,12 +105,6 @@ public class ProfileServiceImpl implements ProfileService {
 	@Override
 	public void myFreeDeleteAll(String b_writer) throws Exception {
 		pdao.myFreeDeleteAll(b_writer);
-	}
-
-//	마이페이지(자게) 댓글 총 개수
-	@Override
-	public int getMyFreeRepCnt(String c_writer) throws Exception {
-		return pdao.getMyFreeRepCnt(c_writer);
 	}
 	
 //	마이페이지(자게) 게시글에서 댓글 작성

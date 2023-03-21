@@ -101,6 +101,12 @@ public class ProfileDAOImpl implements ProfileDAO {
 		return sql.selectOne(namespace + ".getMyFreeCnt", b_writer);
 	}
 
+//	마이페이지(자게) 댓글 총 개수
+	@Override
+	public int getMyFreeRepCnt(String c_writer) throws Exception {
+		return sql.selectOne(namespace + ".getMyFreeRepCnt", c_writer);
+	}
+
 //	마이페이지(자게) 게시글 목록
 	@Override
 	public List<FreeBoardVO> getMyFreeList(String b_writer, int displayPost, int postNum) throws Exception {
@@ -153,12 +159,6 @@ public class ProfileDAOImpl implements ProfileDAO {
 	@Override
 	public void myFreeDetailReplyModify(ReplyVO vo) throws Exception {
 		sql.update(namespace + ".myFreeDetailReplyModify", vo);
-	}
-
-//	마이페이지(자게) 댓글 총 개수
-	@Override
-	public int getMyFreeRepCnt(String c_writer) throws Exception {
-		return sql.selectOne(namespace + ".getMyFreeRepCnt", c_writer);
 	}
 	
 //	마이페이지(자게) 댓글 목록
