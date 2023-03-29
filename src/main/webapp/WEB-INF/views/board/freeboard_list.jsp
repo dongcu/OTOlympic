@@ -15,15 +15,16 @@
 <link rel="stylesheet" href="${path}/resources/css/free_styles.css">
 <link rel="stylesheet" href="${path}/resources/css/free_list.css">
 <link rel="shortcut icon" href="${path}/resources/img/파비콘.png" type="image/x-icon">
-
 <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
 <script type="text/javascript">
 	function sendit(){
 		$('#search').submit();
 	}
 </script>
+
 <style>
 section {
 	height: 1120px;
@@ -73,15 +74,14 @@ select {
 						</div>
 					</div>
 					<div class="noti_header_box txt_right">
-						<form name="s_form" id="search" action="/free/freelist"
-							method="get">
+						<form name="s_form" id="search" action="/free/freelist" method="get">
 							<select name="searchType">
 								<option value="T">제목</option>
 								<option value="C">내용</option>
 								<option value="TC">제목 + 내용</option>
-							</select> <input name="keyword" value="" maxlength=50 type="text"
-								placeholder="검색어 입력" /> <input type="hidden" value="${select}"
-								name="num" />
+							</select>
+							<input name="keyword" value="" maxlength=50 type="text" placeholder="검색어 입력" />
+							<input type="hidden" value="${select}" name="num" />
 							<button type="button" class="btn_primary" onclick="sendit();">검색</button>
 						</form>
 					</div>
@@ -119,8 +119,7 @@ select {
 									<span class="">${freelist.b_writer}</span>
 								</div>
 								<div class="data" style="width: 150px;">
-									<span class="date"><fmt:formatDate
-											value="${freelist.b_date}" pattern="yy-MM-dd HH:mm" /></span>
+									<span class="date"><fmt:formatDate value="${freelist.b_date}" pattern="yy-MM-dd HH:mm" /></span>
 								</div>
 								<div class="view">
 									<span class="view" style="display:inline-block; width: 40px !important; text-align:right;">${freelist.view_cnt}</span>
@@ -136,32 +135,32 @@ select {
 				<div class="btns">
 					<ul class="pagination">
 						<c:if test="${page.prev}">
-							<li>[<a href='/free/freelist?searchType=T&keyword=&num=${page.startPageNum-1}'>이전</a>]
+							<li>
+								[<a href='/free/freelist?searchType=T&keyword=&num=${page.startPageNum-1}'>이전</a>]
 							</li>
 						</c:if>
-						<c:forEach begin="${page.startPageNum}" end="${page.endPageNum}"
-							var="num">
-							<li><c:if test="${select != num}">
+						<c:forEach begin="${page.startPageNum}" end="${page.endPageNum}" var="num">
+							<li>
+								<c:if test="${select != num}">
 									<a href="/free/freelist?searchType=T&keyword=&num=${num}">${num}</a>
-								</c:if> <c:if test="${select == num}">
-									<b
-										style="font-weight: 700; color: red; text-decoration: underline;">${num}</b>
-								</c:if></li>
+								</c:if>
+								<c:if test="${select == num}">
+									<b style="font-weight: 700; color: red; text-decoration: underline;">${num}</b>
+								</c:if>
+							</li>
 						</c:forEach>
 						<c:if test="${page.next}">
-							<li>[<a href="/free/freelist?searchType=T&keyword=&num=${page.endPageNum+1}">다음</a>]
+							<li>
+								[<a href="/free/freelist?searchType=T&keyword=&num=${page.endPageNum+1}">다음</a>]
 							</li>
 						</c:if>
 					</ul>
 				</div>
 			</div>
 		</div>
-		</div>
-
-		</div>
 		<!-- 개발코드 끝 -->
 	</section>
 	<%@ include file="../include/footer.jsp"%>
-
 </body>
+
 </html>
