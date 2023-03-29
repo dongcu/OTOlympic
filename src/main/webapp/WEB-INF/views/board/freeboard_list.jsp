@@ -80,7 +80,7 @@ select {
 								<option value="C">내용</option>
 								<option value="TC">제목 + 내용</option>
 							</select>
-							<input name="keyword" value="" maxlength=50 type="text" placeholder="검색어 입력" />
+							<input name="keyword" value="${keyword}" maxlength=50 type="text" placeholder="검색어 입력" />
 							<input type="hidden" value="${select}" name="num" />
 							<button type="button" class="btn_primary" onclick="sendit();">검색</button>
 						</form>

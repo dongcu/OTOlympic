@@ -7,7 +7,6 @@
 	<!-- 게시물 총 개수 + 검색한 게시물 개수 -->
 	<select id="freeSearchCnt" resultType="_int">
 		select count(*) from f_board
-
 		<if test='searchType.equals("T")'>
 			where b_title like ('%${keyword}%')
 		</if>
