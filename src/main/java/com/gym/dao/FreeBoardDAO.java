@@ -7,8 +7,8 @@ import com.gym.domain.ReplyVO;
 
 public interface FreeBoardDAO {
 
-	// 게시물 총 개수 세기
-	public int getFreeCnt() throws Exception;
+	// 게시물 총 개수 + 검색한 게시물 개수
+	public int getSearchCnt(String keyword, String searchType) throws Exception;
 
 	// 게시물 목록 보기
 	public List<FreeBoardVO> getFreelist(String keyword, String searchType, int display, int PostpostNum) throws Exception;
@@ -27,9 +27,6 @@ public interface FreeBoardDAO {
 
 	// 게시물 삭제
 	public void freeDelete(int b_num) throws Exception;
-
-	// 게시물 내용 검색
-	public int getSearchCnt(String keyword, String searchType) throws Exception;
 
 	// 댓글 작성
 	public void freeReplyWrite(ReplyVO vo) throws Exception;

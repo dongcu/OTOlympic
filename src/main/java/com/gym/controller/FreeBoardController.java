@@ -2,6 +2,8 @@ package com.gym.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,7 @@ import com.gym.domain.FreeBoardVO;
 import com.gym.domain.Page;
 import com.gym.domain.ReplyPage;
 import com.gym.domain.ReplyVO;
+import com.gym.domain.UserVO;
 import com.gym.service.FreeBoardService;
 
 @Controller
@@ -45,14 +48,16 @@ public class FreeBoardController {
 
 	// 게시물 조회
 	@GetMapping("/freedetail")
-	public String getFreeDetail(String keyword, int b_num, Model model, int reply_num) throws Exception {
-		service.freeViewCnt(b_num);
-		// db에 거치면 viewCnt가 +1이 됨-> 메소드 종료시 , 밑줄이 실행됨
-
+	public String getFreeDetail(String keyword, int b_num, Model model, int reply_num, HttpServletRequest req) throws Exception {
 		FreeBoardVO vo = service.getFreeDetail(b_num);
 		model.addAttribute("freedetail", vo);
 		model.addAttribute("keyword", keyword);
 
+		String userid = ((UserVO) req.getSession().getAttribute("loginUser")).getUserid();
+		if (!userid.equals(vo.getB_writer())) {
+			service.freeViewCnt(b_num);
+		}
+		
 		// 댓글 조회
 		ReplyPage page = new ReplyPage();
 		page.setNum(reply_num);
@@ -73,7 +78,7 @@ public class FreeBoardController {
 		return "/board/freeboard_write";
 	}
 
-	// 게시물 글작성 post 메소드
+	// 게시물 글쓰기 post 메소드
 	@PostMapping("/freewrite")
 	public String postFreeWrite(FreeBoardVO vo) throws Exception {
 		service.freeWrite(vo);

@@ -20,10 +20,14 @@ public class FreeBoardDAOImpl implements FreeBoardDAO {
 
 	private static String namespace = "com.gym.mappers.free";
 
-	// 게시글 총 개수 세기
+	// 게시물 총 개수 + 검색한 게시물 개수
 	@Override
-	public int getFreeCnt() throws Exception {
-		return sql.selectOne(namespace + ".freeCnt");
+	public int getSearchCnt(String keyword, String searchType) throws Exception {
+		HashMap<String, String> data = new HashMap<String, String>();
+		data.put("keyword", keyword);
+		data.put("searchType", searchType);
+
+		return sql.selectOne(namespace + ".freeSearchCnt", data);
 	}
 
 	// 게시글 목록 보기
@@ -54,30 +58,18 @@ public class FreeBoardDAOImpl implements FreeBoardDAO {
 	@Override
 	public void freewrite(FreeBoardVO vo) throws Exception {
 		sql.insert(namespace + ".freeWrite", vo);
-
 	}
 
 	// 게시물 수정하기
 	@Override
 	public void freeModify(FreeBoardVO vo) throws Exception {
 		sql.update(namespace + ".freeModify", vo);
-
 	}
 
 	// 게시물 삭제
 	@Override
 	public void freeDelete(int b_num) throws Exception {
 		sql.delete(namespace + ".freeDelete", b_num);
-	}
-
-	// 게시물 내용 검색해서 숫자 세기
-	@Override
-	public int getSearchCnt(String keyword, String searchType) throws Exception {
-		HashMap<String, String> data = new HashMap<String, String>();
-		data.put("keyword", keyword);
-		data.put("searchType", searchType);
-
-		return sql.selectOne(namespace + ".freeSearchCnt", data);
 	}
 
 	// 댓글 작성

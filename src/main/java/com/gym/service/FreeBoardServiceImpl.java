@@ -15,10 +15,10 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 	@Autowired
 	private FreeBoardDAO dao;
 
-	// 게시판 총 개수 세기
+	// 게시물 총 개수 + 검색한 게시물 개수
 	@Override
-	public int getFreeCnt() throws Exception {
-		return dao.getFreeCnt();
+	public int getSearchCnt(String keyword, String searchType) throws Exception {
+		return dao.getSearchCnt(keyword, searchType);
 	}
 
 	// 게시판 목록 불러오기
@@ -55,12 +55,6 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 	@Override
 	public void freeDelete(int b_num) throws Exception {
 		dao.freeDelete(b_num);
-	}
-
-	// 게시물 내용 검색
-	@Override
-	public int getSearchCnt(String keyword, String searchType) throws Exception {
-		return dao.getSearchCnt(keyword, searchType);
 	}
 
 	// 댓글 작성
