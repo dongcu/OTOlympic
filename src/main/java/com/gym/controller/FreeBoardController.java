@@ -71,7 +71,7 @@ public class FreeBoardController {
 
 		return "/board/freeboard_detail";
 	}
-
+	
 	// 게시물 글쓰기 get 메소드
 	@GetMapping("/freewrite")
 	public String getFreeWrite() throws Exception {

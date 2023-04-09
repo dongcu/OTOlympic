@@ -95,7 +95,7 @@ select {
 								<span class="board_num" style="width:30px;">번호</span>
 							</div>
 							<div class="title" style="width: 538px;">
-								<span>제목</span></a>
+								<span>제목</span>
 							</div>
 							<div class="writer_id" style="width: 100px; text-align:left;">
 								<span class="">작성자</span>
@@ -126,7 +126,6 @@ select {
 								</div>
 							</ul>
 						</c:forEach>
-
 					</form>
 				</div>
 				<div id="write_notice">

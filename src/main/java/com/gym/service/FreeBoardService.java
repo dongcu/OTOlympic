@@ -16,7 +16,7 @@ public interface FreeBoardService {
 	// 게시물 본문 보기
 	public FreeBoardVO getFreeDetail(int b_num) throws Exception;
 
-	// 게시물 조회수 누적
+	// 게시물 조회수
 	public void freeViewCnt(int b_num) throws Exception;
 
 	// 게시물 글쓰기
