@@ -63,8 +63,7 @@ public class FreeBoardController {
 		page.setNum(reply_num);
 		page.setCount(service.getReplyCnt(b_num)); // 이거는 b_num에 대한 reply 개수
 
-		List<ReplyVO> reply = null;
-		reply = service.freeReplylist(b_num, page.getDisplayPost(), page.getPostNum());
+		List<ReplyVO> reply = service.freeReplylist(b_num, page.getDisplayPost(), page.getPostNum());
 		model.addAttribute("page", page);
 		model.addAttribute("reply", reply);
 		model.addAttribute("select", reply_num);

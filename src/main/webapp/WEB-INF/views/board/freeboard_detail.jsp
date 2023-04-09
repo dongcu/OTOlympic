@@ -152,7 +152,6 @@
 	function delete_check() {
 		if (confirm("정말로 삭제하시겠습니까?")) {
 			return true;
-
 		} else {
 			return false;
 		}
@@ -181,62 +180,52 @@
 			return false;
 		}
 	}
+	
 	$('.free_reply_modify').on("click", updateviewBtn);
 	function updateviewBtn(e) {
 		e.preventDefault();
 		let c_num = $(this).attr("href");
 		let replyModi = $(".reply" + c_num);
 		let b_num = $("#b_num").val();
-		let reply_num = $
-		{
-			select
-		}
-		;
-		$
-				.ajax({
-					url : "result",
-					type : "POST",
-					data : {
-						"c_num" : c_num
-					},
-					success : function(result) {
-						replyModi.empty();
-						var commentsview = "";
-						commentsview += '<form action="/free/replyModify" name="replymodiform" id="replymodiform" method="post">';
-						commentsview += '<ul class="reply_textbox">';
-						commentsview += '<div class="reply_textbox2" style="border:none;">';
-						commentsview += '<div class="reply_wr">';
-						commentsview += '<label class="reply_writer">';
-						commentsview += '<p>' + result.c_writer;
-
-						commentsview += '</p>';
-						commentsview += '</div>';
-						commentsview += '<textarea rows="5" cols="50" class="reply_text2" style="resize:none;" id="reply_modify" name="c_contents">';
-						commentsview += result.c_contents;
-						commentsview += '</textarea>';
-						commentsview += '<input type="hidden" value="'+ result.c_num + '" name="c_num" />';
-						commentsview += '<input type="hidden" value="'+ reply_num + '" name="reply_num" />';
-						commentsview += '<input type="hidden" value="'+ b_num + '" name="b_num" />';
-						commentsview += '</div>';
-						commentsview += '<div>';
-						commentsview += '<button type="button" class="reply_btn" onclick="replyModiCheck();">';
-						commentsview += '수정완료';
-						commentsview += '</button>';
-						commentsview += '</div>';
-						commentsview += '</div>';
-						commentsview += '</form>';
-						replyModi.append(commentsview);
-
-					},
-					error : function(request, error) {
-						console.log("ajax 실패");
-						console.log("code:" + request.status + "\n" + "message"
-								+ request.responseText + "\n" + "error:"
-								+ error);
-					}
-
-				})
+		let reply_num = ${select};
+		$.ajax({
+			url : "result",
+			type : "POST",
+			data : {"c_num" : c_num},
+			success : function(result) {
+				replyModi.empty();
+				var commentsview = "";
+					commentsview += '<form action="/free/replyModify" name="replymodiform" id="replymodiform" method="post">';
+					commentsview += '<ul class="reply_textbox">';
+					commentsview += '<div class="reply_textbox2" style="border:none;">';
+					commentsview += '<div class="reply_wr">';
+					commentsview += '<label class="reply_writer">';
+					commentsview += '<p>' + result.c_writer;
+					commentsview += '</p>';
+					commentsview += '</div>';
+					commentsview += '<textarea rows="5" cols="50" class="reply_text2" style="resize:none;" id="reply_modify" name="c_contents">';
+					commentsview += result.c_contents;
+					commentsview += '</textarea>';
+					commentsview += '<input type="hidden" value="'+ result.c_num + '" name="c_num" />';
+					commentsview += '<input type="hidden" value="'+ reply_num + '" name="reply_num" />';
+					commentsview += '<input type="hidden" value="'+ b_num + '" name="b_num" />';
+					commentsview += '</div>';
+					commentsview += '<div>';
+					commentsview += '<button type="button" class="reply_btn" onclick="replyModiCheck();">';
+					commentsview += '수정완료';
+					commentsview += '</button>';
+					commentsview += '</div>';
+					commentsview += '</div>';
+					commentsview += '</form>';
+					replyModi.append(commentsview);
+			},
+			error : function(request, error) {
+				console.log("ajax 실패");
+				console.log("code:" + request.status + "\n" + "message"	+ request.responseText + "\n" + "error:" + error);
+			}
+		})
 	}
+	
 	function replyModiCheck() {
 		if ($("#reply_modify").val() == "") {
 			alert("댓글을 입력해주세요.");

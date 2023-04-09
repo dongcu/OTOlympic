@@ -91,7 +91,7 @@ public class FreeBoardDAOImpl implements FreeBoardDAO {
 
 	// 댓글 총 개수
 	@Override
-	public int getReplyCnt(int b_num) {
+	public int getReplyCnt(int b_num) throws Exception {
 		return sql.selectOne(namespace + ".freeReplyCnt", b_num);
 	}
 
