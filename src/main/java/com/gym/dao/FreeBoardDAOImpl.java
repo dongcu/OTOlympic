@@ -100,16 +100,16 @@ public class FreeBoardDAOImpl implements FreeBoardDAO {
 	public int replyDelete(int c_num) throws Exception {
 		return sql.delete(namespace + ".freeReplyDelete", c_num);
 	}
+	
+	// 댓글 수정 뷰
+	@Override
+	public ReplyVO replyDetail(int c_num) {
+		return sql.selectOne(namespace + ".replyDetail", c_num);
+	}
 
 	// 댓글 수정
 	@Override
 	public void replyModify(ReplyVO vo) throws Exception {
 		sql.update(namespace + ".freeReplyUpdate", vo);
 	}
-
-	@Override
-	public ReplyVO replyDetail(int c_num) {
-		return sql.selectOne(namespace + ".replyDetail", c_num);
-	}
-
 }

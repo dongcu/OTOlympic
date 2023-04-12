@@ -132,7 +132,7 @@ public class FreeBoardController {
 		return result;
 	}
 
-	// 댓글 수정 업데이트
+	// 댓글 수정
 	@PostMapping("/replyModify")
 	public String replyModify(ReplyVO vo, int reply_num) throws Exception {
 		service.replyModify(vo);

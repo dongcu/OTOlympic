@@ -80,16 +80,16 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 	public int replyDelete(int c_num) throws Exception {
 		return dao.replyDelete(c_num);
 	}
+	
+	// 댓글 수정 뷰
+	@Override
+	public ReplyVO replyDetail(int c_num) {
+		return dao.replyDetail(c_num);
+	}
 
 	// 댓글 수정
 	@Override
 	public void replyModify(ReplyVO vo) throws Exception {
 		dao.replyModify(vo);
 	}
-
-	@Override
-	public ReplyVO replyDetail(int c_num) {
-		return dao.replyDetail(c_num);
-	}
-
 }

@@ -40,8 +40,9 @@ public interface FreeBoardDAO {
 	// 댓글 삭제
 	public int replyDelete(int c_num) throws Exception;
 
+	// 댓글 수정 뷰
+	public ReplyVO replyDetail(int c_num);
+	
 	// 댓글 수정
 	public void replyModify(ReplyVO vo) throws Exception;
-
-	public ReplyVO replyDetail(int c_num);
 }
