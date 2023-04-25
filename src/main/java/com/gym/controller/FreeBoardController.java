@@ -119,10 +119,7 @@ public class FreeBoardController {
 	@PostMapping("/replydelete")
 	public String replyDelete(int c_num, int b_num, int select) throws Exception {
 		service.replyDelete(c_num);
-		int[] number = new int[2];
-		number[0] = b_num;
-		number[1] = select;
-		return "redirect:/free/freedetail?b_num=" + number[0] + "&reply_num=" + number[1];
+		return "redirect:/free/freedetail?b_num=" + b_num + "&reply_num=" + select;
 	}
 
 	// 댓글 수정 뷰
