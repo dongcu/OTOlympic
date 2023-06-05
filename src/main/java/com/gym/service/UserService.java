@@ -1,11 +1,5 @@
 package com.gym.service;
 
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import com.gym.dao.UserDAO;
 import com.gym.domain.UserVO;
 
 public interface UserService {

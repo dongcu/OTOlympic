@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
@@ -10,14 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="./main_logo.gif" type="image/x-icon">
-<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
-	crossorigin="anonymous"></script>
-<link
-	href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
-	rel="stylesheet" type="text/css" />
-<link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
-	rel="stylesheet" type="text/css" />
+<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"	crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
 <title>우리동네 올림픽</title>
 <link rel="stylesheet" href="${path}/resources/css/reset.css" />
 <link rel="stylesheet" href="${path}/resources/css/styles.css" />
@@ -102,7 +96,7 @@ table.type3 {
 
 					<c:forEach items="${list}" var="reservelist" varStatus="status">
 						<tr class="reser_result">
-							<td>${page.count - status.count - (select-1) * 10 + 1}</td>
+							<td>${page.count - status.count - (select - 1) * 10 + 1}</td>
 							<td>${reservelist.rv_title}</td>
 							<td>${reservelist.rv_date}</td>
 							<td>${reservelist.rv_time}</td>
@@ -121,8 +115,8 @@ table.type3 {
 				<div class="btns">
 					<ul class="pagination">
 						<c:if test="${page.prev}">
-							<li>[<a
-								href='${path}/profile/my_reserve_now?num=${page.startPageNum-1}'>이전</a>]
+							<li>
+								[<a href='${path}/profile/my_reserve_now?num=${page.startPageNum-1}'>이전</a>]
 							</li>
 						</c:if>
 						<c:forEach begin="${page.startPageNum}" end="${page.endPageNum}" var="num">
@@ -136,8 +130,8 @@ table.type3 {
 							</li>
 						</c:forEach>
 						<c:if test="${page.next}">
-							<li>[<a
-								href="${path}/profile/my_reserve_now?num=${page.endPageNum+1}">다음</a>]
+							<li>
+								[<a href="${path}/profile/my_reserve_now?num=${page.endPageNum+1}">다음</a>]
 							</li>
 						</c:if>
 					</ul>
@@ -150,7 +144,7 @@ table.type3 {
 </body>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script>
-	let url = window.location.pathname+"?num=1";
+	let url = window.location.pathname + "?num=1";
 	console.log(url);
 	
 	$('.sidetab').find('a').each(function() {

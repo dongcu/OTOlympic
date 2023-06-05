@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
@@ -145,41 +144,41 @@
 		}
 	})
 
-	const Timer=document.getElementById('Timer'); //스코어 기록창-분
-	let time= 1800000;
-	let min=30;
-	let sec=60;
-	Timer.innerHTML=min+":"+'00'; 
+	const Timer = document.getElementById('Timer'); //스코어 기록창-분
+	let time = 1800000;
+	let min = 30;
+	let sec = 60;
+	Timer.innerHTML = min + ":" + '00'; 
   
-	function TIMER(){
-		PlAYTIME=setInterval(function(){
-			time=time-1000; // 1초씩 줄어듦
-			min=time/(60*1000); // 초를 분으로 나눠준다.
+	function TIMER() {
+		PlAYTIME = setInterval(function() {
+			time = time - 1000; // 1초씩 줄어듦
+			min = time / (60 * 1000); // 초를 분으로 나눠준다.
 			
-			if(sec>0){ // sec=60 에서 1씩 빼서 출력해준다.
-				sec=sec-1;
-				Timer.innerHTML=Math.floor(min)+':'+sec; // 실수로 계산되기 때문에 소숫점 아래를 버리고 출력해준다.
+			if(sec > 0) { // sec=60 에서 1씩 빼서 출력해준다.
+				sec = sec - 1;
+				Timer.innerHTML = Math.floor(min) + ':' + sec; // 실수로 계산되기 때문에 소숫점 아래를 버리고 출력해준다.
 			}
-			if(sec===0){
-//				0에서 -1을 하면 -59가 출력된다.
-//				그래서 0이 되면 바로 sec을 60으로 돌려주고 value에는 0을 출력하도록 해준다.
-				sec=60;
-				Timer.innerHTML=Math.floor(min)+':'+'00'
+			if(sec === 0) {
+				// 0에서 -1을 하면 -59가 출력된다.
+				// 그래서 0이 되면 바로 sec을 60으로 돌려주고 value에는 0을 출력하도록 해준다.
+				sec = 60;
+				Timer.innerHTML = Math.floor(min) + ':' + '00';
 			}     
-		},1000); //1초마다 
-		setTimeout(function(){
+		}, 1000); // 1초마다 
+		setTimeout(function() {
 			clearInterval(PlAYTIME);
 			alert("시간이 초과되어 로그인 화면으로 돌아갑니다!");
 			location.href = "${path}/"
-		},1800000); // 30분이 되면 타이머를 삭제한다.
+		}, 1800000); // 30분이 되면 타이머를 삭제한다.
 	}
   
 //   메일 가져오기
-	$("#email_id").blur(function(){
+	$("#email_id").blur(function() {
 		totalemail();   
 	});
 	
-	$("#domain-txt").blur(function(){
+	$("#domain-txt").blur(function() {
 		totalemail();
 	});
 	
@@ -188,15 +187,16 @@
 		const useremail_domain = $("#domain-txt").val();
 		
 		if(useremail_id != "" && useremail_domain!= "") {
-			$("#email").val(useremail_id+'@'+useremail_domain);
+			$("#email").val(useremail_id + '@' + useremail_domain);
 		}
 	};
 	
+	// 생성된 인증번호를 담을 변수
 	let code = "";
 	var mailid = /^[A-Za-z0-9_\.\-]/;
 	var maildomain = /^[A-Za-z0-9\-]+\.[A-Za-z0-9\-]/;
 	$('#mail-Check-Btn').click(function() {
-		const email = $('#email_id').val() +'@'+ $('#domain-txt').val(); // 이메일 주소값 얻어오기!
+		const email = $('#email_id').val() + '@' + $('#domain-txt').val(); // 이메일 주소값 얻어오기!
 		console.log('완성된 이메일 : ' + email); // 이메일 오는지 확인
 		const checkInput = $('#certification_number') // 인증번호 입력하는곳 
 		
@@ -214,10 +214,10 @@
 		else {
 			$.ajax({
 				type : 'get',
-				url : '<c:url value ="/user/mailCheck?email="/>'+email, // GET방식이라 Url 뒤에 email을 붙일 수 있다.
+				url : '<c:url value ="/user/mailCheck?email="/>' + email, // GET방식이라 Url 뒤에 email을 붙일 수 있다.
 				success : function (data) {
 					console.log("data : " +  data);
-					checkInput.attr('disabled',false);
+					checkInput.attr('disabled', false);
 					// data는 인스턴스 변수로 선언되었기 때문에 data를 선언한 함수 내에서만 사용할 수 있다.
 					// 인증번호는 해당 함수 밖에서도 사용해야 하기 때문에 전역변수로 선언한 code에 담아준다.
 					code = data;

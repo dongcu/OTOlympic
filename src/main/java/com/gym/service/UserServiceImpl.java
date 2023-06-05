@@ -1,11 +1,8 @@
 package com.gym.service;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.gym.dao.MessageDAO;
 import com.gym.dao.UserDAO;
 import com.gym.domain.UserVO;
 
@@ -14,9 +11,6 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserDAO udao;
-	
-	@Autowired
-	private MessageDAO mdao;
 	
 //  회원가입
 	@Override
@@ -45,7 +39,6 @@ public class UserServiceImpl implements UserService {
 //	비밀번호 찾기할때 회원정보 확인하기
 	@Override
 	public int findpw(String userid, String email) throws Exception {
-		
 		return udao.findpw(userid, email);
 	}
 	
@@ -54,5 +47,4 @@ public class UserServiceImpl implements UserService {
 	public void changePW(String userid, String userpw) throws Exception {
 		udao.changePW(userid, userpw);
 	}
-	
 }

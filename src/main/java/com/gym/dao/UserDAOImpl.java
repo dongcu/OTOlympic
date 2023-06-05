@@ -54,10 +54,9 @@ public class UserDAOImpl implements UserDAO {
 //	비밀번호 변경
 	@Override
 	public void changePW(String userid, String userpw) throws Exception {
-		HashMap<String, String> map =  new HashMap<String, String>();
+		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("userid", userid);
 		map.put("userpw", userpw);
 		sql.update(namespace + ".changePW", map);
 	}
-	
 }

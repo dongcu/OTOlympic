@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
@@ -44,7 +43,6 @@
 <title>운동지식공유 게시판</title>
 
 </head>
-
 <body>
 	<%@ include file="../include/header.jsp"%>
 	<div class="banana">
@@ -156,17 +154,17 @@
 	<%@ include file="../include/footer.jsp"%>
 </body>
 <script>
-	//ckeditor setting
+	// ckeditor setting
 	window.onload = function() {
 		ck = CKEDITOR.replace("ex_content");
 	};
 
-	//읽기 전용으로 만들기
+	// 읽기 전용으로 만들기
 	$("#ex_title").attr("disabled", true);
 	$("#ex_writer").attr("disabled", true);
 	$("#ex_content").attr("disabled", true);
 
-	//삭제 체크
+	// 삭제 체크
 	function delete_check() {
 		if (confirm("게시물을 삭제하시겠습니까?")) {
 			return true;
@@ -175,7 +173,7 @@
 		}
 	}
 
-	//댓글 체크
+	// 댓글 체크
 	function replyCheck() {
 		let reply_writer = $("#exc_writer").val();
 		let reply_content = $(".reply_text").val();
@@ -192,7 +190,7 @@
 		}
 	}
 
-	//댓글 삭제 체크
+	// 댓글 삭제 체크
 	function reply_delete() {
 		if (confirm("정말로 삭제하시겠습니까?")) {
 			return true;
@@ -201,7 +199,7 @@
 		}
 	}
 
-	//댓글 수정 ajax
+	// 댓글 수정 ajax
 	$('.ex_reply_modify').on("click", updateviewBtn);
 	function updateviewBtn(e) {
 		e.preventDefault();

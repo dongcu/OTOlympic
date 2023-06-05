@@ -81,7 +81,6 @@ public class ProfileDAOImpl implements ProfileDAO {
 //	과거 예약 목록
 	@Override
 	public List<ReservationVO> getMyReservePast(String userid, String date_list, String lecture_list, int displayPost, int postNum) throws Exception {
-		
 		HashMap<String, Object> data = new HashMap<String, Object>();
 		
 		data.put("userid", userid);

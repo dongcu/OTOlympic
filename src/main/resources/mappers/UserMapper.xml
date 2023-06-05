@@ -25,22 +25,22 @@
 			where userid = #{userid}
 	</select>
 
-		<!-- 아이디 찾기 -->
+	<!-- 아이디 찾기 -->
 	<select id="findId" resultType="com.gym.domain.UserVO">
-		select * from user where username =#{username} and email =#{email}
+		select * from user where username = #{username} and email = #{email}
 	</select>
 
 	<!-- 이메일과 아이디 불러오기 -->
 	<select id="findPw" parameterType="string" resultType="_int">
 		select count(*) from user
-			where userid = #{userid} and email =#{email}
+			where userid = #{userid} and email = #{email}
 	</select>
 	
 	<!-- 비밀번호 변경하기  -->
 	<update id="changePW">
 		update user set 
-			userpw =#{userpw}
-		where userid =#{userid}
+			userpw = #{userpw}
+		where userid = #{userid}
 	</update>
 	
 </mapper>

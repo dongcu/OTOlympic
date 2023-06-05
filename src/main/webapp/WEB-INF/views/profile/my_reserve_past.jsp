@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
@@ -9,14 +8,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="./main_logo.gif" type="image/x-icon">
-<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
-	crossorigin="anonymous"></script>
-<link
-	href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"
-	rel="stylesheet" type="text/css" />
-<link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
-	rel="stylesheet" type="text/css" />
+<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"	crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
 <title>우리동네 올림픽</title>
 <link rel="stylesheet" href="${path}/resources/css/reset.css" />
 <link rel="stylesheet" href="${path}/resources/css/styles.css" />
@@ -156,7 +150,7 @@ input[type="text"] {
 
 					<c:forEach items="${list}" var="reservelist" varStatus="status">
 						<tr class="reser_result">
-							<td>${page.count - status.count - (select-1) * 10 + 1}</td>
+							<td>${page.count - status.count - (select - 1) * 10 + 1}</td>
 							<td>${reservelist.rv_title}</td>
 							<td>${reservelist.rv_date}</td>
 							<td>${reservelist.rv_time}</td>
@@ -166,8 +160,8 @@ input[type="text"] {
 				<div class="btns">
 					<ul class="pagination">
 						<c:if test="${page.prev}">
-							<li>[<a
-								href='${path}/profile/my_reserve_past?num=${page.startPageNum-1}&date_list=${page.date_list}&lecture_list=${page.lecture_list}'>이전</a>]
+							<li>
+								[<a href='${path}/profile/my_reserve_past?num=${page.startPageNum-1}&date_list=${page.date_list}&lecture_list=${page.lecture_list}'>이전</a>]
 							</li>
 						</c:if>
 						<c:forEach begin="${page.startPageNum}" end="${page.endPageNum}" var="num">
@@ -181,8 +175,8 @@ input[type="text"] {
 							</li>
 						</c:forEach>
 						<c:if test="${page.next}">
-							<li>[<a
-								href="${path}/profile/my_reserve_past?num=${page.endPageNum+1}&date_list=${page.date_list}&lecture_list=${page.lecture_list}">다음</a>]
+							<li>
+								[<a href="${path}/profile/my_reserve_past?num=${page.endPageNum+1}&date_list=${page.date_list}&lecture_list=${page.lecture_list}">다음</a>]
 							</li>
 						</c:if>
 					</ul>
@@ -215,22 +209,22 @@ input[type="text"] {
 		}
 		else if (datepick.value == "1_month") {
 			let date1 = new Date();
-			const pd1 = new Date(date1.setMonth(date1.getMonth()-1));
+			const pd1 = new Date(date1.setMonth(date1.getMonth() - 1));
 			pd.value = pd1.toISOString().substring(0, 10);
 		}
 		else if (datepick.value == "3_months") {
 			let date3 = new Date();
-			const pd3 = new Date(date3.setMonth(date3.getMonth()-3));
+			const pd3 = new Date(date3.setMonth(date3.getMonth() - 3));
 			pd.value = pd3.toISOString().substring(0, 10);
 		}
 		else if (datepick.value == "6_months") {
 			let date6 = new Date();
-			const pd6 = new Date(date6.setMonth(date6.getMonth()-6));
+			const pd6 = new Date(date6.setMonth(date6.getMonth() - 6));
 			pd.value = pd6.toISOString().substring(0, 10);
 		}
 		else if (datepick.value == "12_months") {
 			let date12 = new Date();
-			const pd12 = new Date(date12.setFullYear(date12.getFullYear()-1));
+			const pd12 = new Date(date12.setFullYear(date12.getFullYear() - 1));
 			pd.value = pd12.toISOString().substring(0, 10);
 		}
 	})

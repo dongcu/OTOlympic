@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
@@ -93,7 +92,8 @@
 					</tr>
 					<tr>
 						<th><label for="userpw_re">비밀번호 확인</label></th>
-						<td><input type="password" name="userpw_re" id="userpw_re">
+						<td>
+							<input type="password" name="userpw_re" id="userpw_re">
 						</td>
 					</tr>
 					<tr>
@@ -251,7 +251,7 @@
 		});
 	})
 	
-//   번호 가져오기
+// 번호 가져오기
    $("#userphone").blur(function(){
       phone_number();   
    });
@@ -270,7 +270,7 @@
       const last = $("#last_num").val();
       
       if(first != "" && middle != "" && last != "") {
-         $("#phone").val(first+middle+last);
+         $("#phone").val(first + middle + last);
       }
    };
 </script>
